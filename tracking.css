@@ -1,0 +1,252 @@
+/* ============================================
+   USAGE TRACKING DASHBOARD STYLES
+   ============================================ */
+
+.tracking-panel {
+    margin-top: 24px;
+}
+
+.tracking-stats {
+    display: flex;
+    align-items: center;
+    gap: 12px;
+}
+
+.mini-stat {
+    font-size: 12px;
+    color: var(--text-secondary);
+    padding: 6px 12px;
+    background: var(--bg-tertiary);
+    border-radius: 12px;
+    font-weight: 600;
+}
+
+.tracking-container {
+    max-height: 800px;
+    overflow-y: auto;
+    padding-right: 8px;
+}
+
+.tracking-container::-webkit-scrollbar {
+    width: 6px;
+}
+
+.tracking-container::-webkit-scrollbar-track {
+    background: var(--bg-tertiary);
+    border-radius: 3px;
+}
+
+.tracking-container::-webkit-scrollbar-thumb {
+    background: var(--accent-purple);
+    border-radius: 3px;
+}
+
+/* Category Sections */
+.category-section {
+    margin-bottom: 32px;
+}
+
+.category-title {
+    font-size: 18px;
+    font-weight: 700;
+    color: var(--text-primary);
+    margin-bottom: 16px;
+    padding-bottom: 12px;
+    border-bottom: 2px solid rgba(255, 255, 255, 0.1);
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.device-count {
+    font-size: 13px;
+    font-weight: 600;
+    color: var(--text-muted);
+    background: var(--bg-tertiary);
+    padding: 4px 12px;
+    border-radius: 12px;
+}
+
+/* Tracking Grid */
+.tracking-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(320px, 1fr));
+    gap: 16px;
+}
+
+/* Tracking Cards */
+.tracking-card {
+    background: var(--bg-card);
+    border: 1px solid rgba(255, 255, 255, 0.05);
+    border-radius: var(--radius-md);
+    padding: 16px;
+    transition: all var(--transition-normal);
+    position: relative;
+    overflow: hidden;
+}
+
+.tracking-card::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 4px;
+    height: 100%;
+    background: var(--accent-purple);
+    opacity: 0;
+    transition: opacity var(--transition-normal);
+}
+
+.tracking-card.active::before {
+    opacity: 1;
+    background: var(--success-gradient);
+}
+
+.tracking-card:hover {
+    border-color: rgba(255, 255, 255, 0.15);
+    transform: translateY(-2px);
+    box-shadow: var(--shadow-lg);
+}
+
+/* Tracking Header */
+.tracking-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 16px;
+    padding-bottom: 12px;
+    border-bottom: 1px solid rgba(255, 255, 255, 0.05);
+}
+
+.device-name {
+    display: flex;
+    align-items: center;
+    gap: 8px;
+    font-size: 16px;
+    font-weight: 600;
+    color: var(--text-primary);
+}
+
+.device-icon {
+    font-size: 24px;
+    filter: drop-shadow(0 2px 4px rgba(0, 0, 0, 0.3));
+}
+
+.device-status {
+    padding: 4px 12px;
+    border-radius: 12px;
+    font-size: 11px;
+    font-weight: 700;
+    text-transform: uppercase;
+    letter-spacing: 0.5px;
+}
+
+.device-status.on {
+    background: linear-gradient(135deg, rgba(79, 172, 254, 0.2) 0%, rgba(0, 242, 254, 0.2) 100%);
+    color: var(--accent-cyan);
+    border: 1px solid var(--accent-cyan);
+}
+
+.device-status.off {
+    background: rgba(255, 255, 255, 0.05);
+    color: var(--text-muted);
+    border: 1px solid rgba(255, 255, 255, 0.1);
+}
+
+/* Tracking Details */
+.tracking-details {
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+}
+
+.tracking-row {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 8px 0;
+}
+
+.tracking-row:not(:last-child) {
+    border-bottom: 1px solid rgba(255, 255, 255, 0.03);
+}
+
+.track-label {
+    font-size: 13px;
+    color: var(--text-secondary);
+    font-weight: 500;
+    display: flex;
+    align-items: center;
+    gap: 6px;
+}
+
+.track-value {
+    font-size: 14px;
+    color: var(--text-primary);
+    font-weight: 600;
+    text-align: right;
+}
+
+/* Animations */
+@keyframes slideInUp {
+    from {
+        opacity: 0;
+        transform: translateY(20px);
+    }
+
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+.tracking-card {
+    animation: slideInUp 0.3s ease-out;
+}
+
+.category-section:nth-child(1) .tracking-card {
+    animation-delay: 0.05s;
+}
+
+.category-section:nth-child(2) .tracking-card {
+    animation-delay: 0.1s;
+}
+
+.category-section:nth-child(3) .tracking-card {
+    animation-delay: 0.15s;
+}
+
+/* Responsive Design */
+@media (max-width: 1200px) {
+    .tracking-grid {
+        grid-template-columns: repeat(auto-fill, minmax(280px, 1fr));
+    }
+}
+
+@media (max-width: 768px) {
+    .tracking-grid {
+        grid-template-columns: 1fr;
+    }
+
+    .tracking-panel {
+        margin-top: 16px;
+    }
+
+    .tracking-container {
+        max-height: 600px;
+    }
+}
+
+/* Enhanced Light Cards for Device Type */
+.light-card {
+    position: relative;
+}
+
+.light-card::after {
+    content: attr(data-category);
+    position: absolute;
+    top: 8px;
+    right: 8px;
+    font-size: 20px;
+    opacity: 0.3;
+}
