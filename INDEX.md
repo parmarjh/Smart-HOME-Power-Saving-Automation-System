@@ -8,10 +8,12 @@
 
 | Document | Purpose | Size | Priority |
 |----------|---------|------|----------|
-| **[START HERE](#readme)** | Technical documentation | 62.6 KB | ⭐⭐⭐ |
+| **[START HERE](#readme)** | Technical documentation | 82 KB | ⭐⭐⭐ |
+| **[HARDWARE_IMPLEMENTATION.md](#hardware)** | Hardware setup guide | 45 KB | ⭐⭐⭐ |
 | **[FINAL_SUMMARY.md](#final-summary)** | Complete project overview | 18.5 KB | ⭐⭐⭐ |
 | **[RESEARCH_PAPER.md](#research-paper)** | Academic paper | 20.8 KB | ⭐⭐⭐ |
 | **[PROJECT_TRACKING.md](#project-tracking)** | Development timeline | 16.2 KB | ⭐⭐ |
+| **[GITHUB_DEPLOYMENT.md](#github)** | Git setup & push guide | 32 KB | ⭐⭐ |
 | **[VISUAL_GALLERY.md](#visual-gallery)** | Design documentation | 7.3 KB | ⭐⭐ |
 | **[ENHANCEMENTS.md](#enhancements)** | Feature details | 9.1 KB | ⭐⭐ |
 | **[GUIDE.md](#guide)** | User manual | 11.4 KB | ⭐ |

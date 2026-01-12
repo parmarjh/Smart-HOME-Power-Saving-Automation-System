@@ -40,6 +40,9 @@ class SmartLightAutomation {
     async init() {
         console.log('🚀 Initializing Smart Light Automation System...');
 
+        // Check authentication first
+        await this.checkAuthentication();
+
         // Initialize lights
         this.initializeLights();
 
@@ -59,6 +62,28 @@ class SmartLightAutomation {
         this.startStatsLoop();
 
         console.log('✅ System Ready!');
+    }
+
+    async checkAuthentication() {
+        try {
+            const response = await fetch('/api/auth/check');
+            const data = await response.json();
+
+            if (!data.authenticated) {
+                window.location.href = '/login';
+                return;
+            }
+
+            // Display user info
+            document.getElementById('userName').textContent = data.user.name;
+            document.getElementById('userEmail').textContent = data.user.email;
+
+            this.currentUser = data.user;
+            console.log('✅ Authenticated as:', data.user.name);
+        } catch (error) {
+            console.error('Authentication check failed:', error);
+            window.location.href = '/login';
+        }
     }
 
     initializeLights() {
@@ -294,6 +319,24 @@ class SmartLightAutomation {
         document.getElementById('timeRange').addEventListener('change', (e) => {
             this.updateStatsForRange(e.target.value);
         });
+
+        // Logout button
+        document.getElementById('logoutBtn').addEventListener('click', () => this.handleLogout());
+    }
+
+    async handleLogout() {
+        try {
+            const response = await fetch('/api/logout', {
+                method: 'POST'
+            });
+
+            if (response.ok) {
+                window.location.href = '/login';
+            }
+        } catch (error) {
+            console.error('Logout failed:', error);
+            alert('Failed to logout. Please try again.');
+        }
     }
 
     async startCamera() {
