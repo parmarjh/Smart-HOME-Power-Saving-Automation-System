@@ -235,7 +235,7 @@ CRITICAL SAFETY:
                             │
                             ▼
         ┌───────────────────────────────────────┐
-        │     RASPBERRY PI 4                    │
+        │     RASPBERRY PI 4 +                   │
         │                                       │
         │   • Runs Flask Server (Port 5000)    │
         │   • AI Processing (TensorFlow.js)    │
@@ -411,7 +411,7 @@ CRITICAL SAFETY:
 ### 📋 Component Checklist
 
 **Electronics:**
-- [ ] Raspberry Pi 4 (4GB) - $45
+- [ ] Raspberry Pi 4 + (4GB) - $45
 - [ ] MicroSD Card 32GB - $8
 - [ ] USB-C Power 5V/3A - $10
 - [ ] 8-Channel Relay Module (5V) - $12
